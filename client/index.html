@@ -1,0 +1,188 @@
+<html>
+
+<head>
+    <title>Home</title>
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+    <script type="text/javascript" src="node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .card {
+            position: relative;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    max-width: max-content;
+    margin: auto;
+    max-height: max-content;
+    margin-top: 11%;
+    padding-bottom: 1px;
+    padding-left: 11px;
+    padding-top: 11px;
+    padding-right: 11px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.kubernetes-dashboard{
+  background: #326de6;
+    color: white;
+    margin-top: -12px;
+    margin-right: -12px;
+    margin-bottom: -1px;
+    margin-left: -12px;
+}
+.kubernetes-dashboard-context{
+	margin-left: 21px;
+    font-size: 22px;
+    font-family: arial;
+    padding-bottom: 15px;
+    padding-top: 15px
+}
+.kubeconfig{
+	font-size: 21px;
+    margin-top: 15px;
+	font-family: arial;
+}
+.kubeconfig-context{
+	font-size: 15px;
+	margin: 15px;
+	font-family: arial;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+.container {
+  padding: 2px 16px;
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+   font-weight: 500;
+    color: black;
+    font-size: 16px;
+    font-family: arial;
+    background-color: white;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #326de6;
+}
+.inputfile + label {
+	cursor: pointer;/* "hand" cursor */
+ }
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+	pointer-events: none;
+} 
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.upload-button {
+  font-family: sans-serif;
+  width: 197px;
+    border: 2px;
+    background-color: #326de6;
+    padding: 8px 8px;
+    border-radius: 3px;
+    font-size: 17px;
+    color: white;
+    font-weight: 400;
+    margin-left: 12px;
+  
+    
+}
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.submit-btn{
+    position: absolute;
+    border: 2px;
+    background-color: #326de6;
+    padding: 8px 8px;
+    border-radius: 3px;
+    font-size: 16px;
+    color: white;
+    margin-left: 175px;
+    margin-top: 1px;
+    font-family: sans-serif;
+}
+</style>
+
+</head>
+
+<body ng-app="fileUpload" body style="background-color:#EEEEEE;" ng-controller="MyCtrl as up">
+    <div>
+        <div class="card">
+            <div class="kubernetes-dashboard">
+                <div class="kubernetes-dashboard-context">Kubernetes Dashboard</div>
+            </div>
+            <div class="container">
+                <div class="kubeconfig">Kubeconfig </div>
+                <div class="kubeconfig-context">Please provide the kubeconfig file that you have created to configure
+                    access to
+                    the cluster. To find out more
+                    about how to configure and use kubeconfig file, please refer to the
+                    <a style="color :#326de6;" href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
+                        Configure Access to Multiple Clusters
+                    </a> section.</div>
+                </div>
+            <form name="up.upload_form" >
+                <div>
+                    <div class="upload-btn-wrapper">
+                        <button class="upload-button" >Upload kubeconfig</button>
+                        <input type="file" required ngf-select ng-model="up.file" name="file" accept="*/*" ngf-max-size="20MB" />
+                        <br>
+                    </div>
+                    <button type="submit" class="submit-btn" ng-click="up.submit()">SIGN IN</button>
+            </form>
+
+        </div>
+    </div>
+    <!-- <div ng-show="false">
+      
+        <div style="    margin-bottom: auto;
+    margin-left: -26px;
+    width: 103.5%;
+    margin-top: -41px;
+     height: 100vh;">
+            <iframe src="http://114.143.207.110:9090/"></iframe>
+        </div>
+    </div> -->
+
+</body>
+
+
+</html>
